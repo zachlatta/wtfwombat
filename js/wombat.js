@@ -2,7 +2,15 @@ var canvas = document.getElementById('wombat'),
     ctx = canvas.getContext('2d');
 
 var WOMBAT_LEFT_URL = "img/wombat_left.png",
-    WOMBAT_RIGHT_URL = "img/wombat_right.png";
+    WOMBAT_RIGHT_URL = "img/wombat_right.png",
+    BACKGROUND_URL = "img/background.png";
+
+var bgReady = false;
+var bgImage = new Image();
+bgImage.onload = function() {
+  bgReady = true;
+};
+bgImage.src = BACKGROUND_URL;
 
 var wombatReady = false;
 var wombatImage = new Image();
@@ -12,9 +20,9 @@ wombatImage.onload = function() {
 wombatImage.src = WOMBAT_RIGHT_URL;
 
 var wombat = {
-  speed: 256,
-  x: 0,
-  y: 0
+  speed: 25,
+  x: 25,   // Default values
+  y: canvas.height - 50 
 }
 
 var keysDown = {};
@@ -51,27 +59,19 @@ var update = function(delta) {
       wombatImage.src = WOMBAT_RIGHT_URL;
     }
   }
+
+  // Check if wombat is too high
 };
 
 var render = function() {
-  clear();
+  if(bgReady) {
+    ctx.drawImage(bgImage, 0, 0);
+  }
 
   if(wombatReady) {
     ctx.drawImage(wombatImage, wombat.x, wombat.y);
   }
 };
-
-function clear() {
-  // Store the current transformation matrix
-  ctx.save();
-
-  // Use the identity matrix while clearing the canvas
-  ctx.setTransform(1, 0, 0, 1, 0, 0);
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-  // Restore the transform
-  ctx.restore();
-}
 
 // main wombat loop
 var main = function() {
