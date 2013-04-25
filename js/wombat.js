@@ -61,6 +61,9 @@ var update = function(delta) {
   }
 
   // Check if wombat is too high
+  if(wombat.y < canvas.height - 128) {
+    wombat.y = canvas.height - 128;
+  }
 };
 
 var render = function() {
