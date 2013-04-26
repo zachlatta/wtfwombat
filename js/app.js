@@ -54,9 +54,8 @@ var player = {
   sprite: new Sprite('img/sprites.png', [0, 0], [20, 43])
 };
 
-var projectiles = [],
-    enemies = [],
-    explosions = [];
+var bullets = [],
+    enemies = [];
 
 var lastFire = Date.now(),
     gameTime = 0,
@@ -82,8 +81,7 @@ function update(dt) {
   // equation: 1 - .993^gameTime
   if(Math.random() < 1 - Math.pow(.993, gameTime)) {
     enemies.push({
-      pos: [canvas.width,
-            Math.random() * (canvas.height - 39)],
+      pos: [Math.random() * canvas.width, 0],
       sprite: new Sprite('img/sprites.png', [0, 42], [23, 40])
     });
   }
