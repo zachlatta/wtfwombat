@@ -82,7 +82,7 @@ function update(dt) {
   if(Math.random() < 1 - Math.pow(.993, gameTime)) {
     enemies.push({
       pos: [Math.random() * (canvas.width - 23), -40],
-      sprite: new Sprite('img/sprites.png', [0, 42], [23, 40])
+      sprite: new Sprite('img/sprites.png', [0, 44], [23, 40])
     });
   }
 
@@ -109,12 +109,12 @@ function handleInput(dt) {
   }
   
   if(input.isDown('SPACE') && !isGameOver && Date.now() - lastFire > 100) {
-    var x = player.pos[0],
+    var x = player.pos[0] + (player.sprite.size[0] / 2),
         y = player.pos[1];
     
     bullets.push({ pos: [x, y],
                    dir: 'up',
-                   sprite: new Sprite('img/sprites.png', [0, 78], [4, 4])});
+                   sprite: new Sprite('img/sprites.png', [0, 83], [4, 4])});
 
     lastFire = Date.now();
   }
