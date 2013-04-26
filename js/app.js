@@ -81,7 +81,7 @@ function update(dt) {
   // equation: 1 - .993^gameTime
   if(Math.random() < 1 - Math.pow(.993, gameTime)) {
     enemies.push({
-      pos: [Math.random() * canvas.width, 0],
+      pos: [Math.random() * (canvas.width - 23), -40],
       sprite: new Sprite('img/sprites.png', [0, 42], [23, 40])
     });
   }
@@ -145,7 +145,7 @@ function updateEntities(dt) {
     enemies[i].sprite.update(dt);
 
     // Remove if offscreen
-    if(enemies[i].pos[1] + enemies[i].sprite.size[1] > canvas.height) {
+    if(enemies[i].pos[1] > canvas.height) {
       enemies.splice(i, 1);
       i--;
     }
