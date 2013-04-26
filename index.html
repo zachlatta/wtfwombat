@@ -1,22 +1,31 @@
 <!doctype html>
 <html>
 <head>
-  <title>wtf wombat</title>
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+  <meta charset="utf-8">
+
+  <title>wombat</title>
+  <meta name="description" content="Wombats and stuff.">
+  <meta name="viewport" content="width=device-width">
+
   <link rel="stylesheet" type="text/css" href="css/wombat.css" />
 </head>
 <body>
-  <div class="navbar navbar-static-top">
-    <div class="navbar-inner">
-      <a class="brand" href="#">a single lonely wombat with no friends</a>
-    </div>
-  </div>
-  <div class="container">
-    <canvas id="wombat" width="640" height="400" />
+  <div id="game-over-overlay">
   </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/wombat.js"></script>
+  <div id="game-over">
+    <h1>GAME OVER</h1>
+    <button id="play-again">Play Again</button>
+  </div>
+
+  <div class="container">
+    <div id="score">
+    </div>
+  </div>
+
+  <script src="js/resources.js"></script>
+  <script src="js/input.js"></script>
+  <script src="js/sprite.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>
