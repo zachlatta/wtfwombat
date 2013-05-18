@@ -1,1 +1,1 @@
-wombat is sad
+Wonderful wombats. Wonderful wombats everywhere.
